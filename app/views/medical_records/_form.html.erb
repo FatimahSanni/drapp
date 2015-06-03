@@ -1,0 +1,187 @@
+<%= form_for([@patient, @medical_record]) do |f| %>
+  <% if @medical_record.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@medical_record.errors.count, "error") %> prohibited this medical_record from being saved:</h2>
+
+      <ul>
+      <% @medical_record.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <h3>Fundus Examination</h3>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Right Eye</th>
+        <th>Left Eye</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Microaneurysms</td>
+        <td><%= f.check_box :micro_re %></td>
+        <td><%= f.check_box :micro_le %></td>
+      </tr>
+      <tr>
+        <td>Haemorrhages</td>
+        <td><%= f.check_box :haem_re %></td>
+        <td><%= f.check_box :haem_le %></td>
+      </tr>
+      <tr>
+        <td>Hard Exudates</td>
+        <td><%= f.check_box :hard_re %></td>
+        <td><%= f.check_box :hard_le %></td>
+      </tr>
+      <tr>
+        <td>Cotton Wool Spots</td>
+        <td><%= f.check_box :cotton_re %></td>
+        <td><%= f.check_box :cotton_le %></td>
+      </tr>
+      <tr>
+        <td>CSME</td>
+        <td><%= f.check_box :csme_re %></td>
+        <td><%= f.check_box :csme_le %></td>
+      </tr>
+      <tr>
+        <td>I.R.M.A</td>
+        <td><%= f.check_box :irma_re %></td>
+        <td><%= f.check_box :irma_le %></td>
+      </tr>
+      <tr>
+        <td>NVD</td>
+        <td><%= f.check_box :nvd_re %></td>
+        <td><%= f.check_box :nvd_le %></td>
+      </tr>
+      <tr>
+        <td>NVE</td>
+        <td><%= f.check_box :nve_re %></td>
+        <td><%= f.check_box :nve_le %></td>
+      </tr>
+      <tr>
+        <td>Vitreous Haemorrhages</td>
+        <td><%= f.check_box :vit_re %></td>
+        <td><%= f.check_box :vit_le %></td>
+      </tr>
+      <tr>
+        <td>TRD</td>
+        <td><%= f.check_box :trd_re %></td>
+        <td><%= f.check_box :trd_le %></td>
+      </tr>
+      <tr>
+        <td>Focal Marks</td>
+        <td><%= f.check_box :focal_re %></td>
+        <td><%= f.check_box :focal_le %></td>
+      </tr>
+      <tr>
+        <td>PRP Marks</td>
+        <td><%= f.check_box :prp_re %></td>
+        <td><%= f.check_box :prp_le %></td>
+      </tr>
+        <tr>
+          <td>Post Vitrectomy Status</td>
+          <td><%= f.check_box :post_re %></td>
+          <td><%= f.check_box :post_le %></td>
+        </tr>
+      <!-- <tr>
+        <td>Unable to grade</td>
+        <td></td>
+        <td></td>
+      </tr> -->
+    </tbody>
+  </table>
+  <div class="form-group">
+    <%= link_to_add_association 'Add Ocular Disease', f, :ocular_diseases %>
+    <%= f.fields_for :ocular_diseases do |o| %>
+    <%= render 'ocular_disease_fields', f: o %>
+    <% end %>
+  </div>
+  <hr>
+  <h3>Diagnosis</h3>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Right Eye</th>
+        <th>Left Eye</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>NPDR (Mild/Moderate)</td>
+        <td><%= f.check_box :mild_re %></td>
+        <td><%= f.check_box :mild_le %></td>
+      </tr>
+      <tr>
+        <td>Severe NPDR</td>
+        <td><%= f.check_box :severe_re %></td>
+        <td><%= f.check_box :severe_le %></td>
+      </tr>
+      <tr>
+        <td>PDR</td>
+        <td><%= f.check_box :pdr_re %></td>
+        <td><%= f.check_box :pdr_le %></td>
+      </tr>
+      <tr>
+        <td>ME</td>
+        <td><%= f.check_box :me_re %></td>
+        <td><%= f.check_box :me_le %></td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <h3>Advice</h3>
+  <div class="form-group">
+      <%= link_to_add_association 'Add Todo', f, :advices %>
+      <%= f.fields_for :advices do |o| %>
+      <%= render 'advice_fields', f: o %>
+      <% end %>
+    </div>
+  <!-- <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Right Eye</th>
+        <th>Left Eye</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>OCT</td>
+        <td><%= f.check_box :oct_re %></td>
+        <td><%= f.check_box :oct_le %></td>
+      </tr>
+      <tr>
+        <td>FFA</td>
+        <td><%= f.check_box :ffa_re %></td>
+        <td><%= f.check_box :ffa_le %></td>
+      </tr>
+      <tr>
+        <td>Injection</td>
+        <td><%= f.check_box :injection_re %></td>
+        <td><%= f.check_box :injection_le %></td>
+      </tr>
+      <tr>
+        <td>Laser</td>
+        <td><%= f.check_box :laser_re %></td>
+        <td><%= f.check_box :laser_le %></td>
+      </tr>
+      <tr>
+        <td>FUP after 3 Months</td>
+        <td><%= f.check_box :fup_3_re %></td>
+        <td><%= f.check_box :fup_3_le %></td>
+      </tr>
+      <tr>
+        <td>FUP after 6 months</td>
+        <td><%= f.check_box :fup_6_re %></td>
+        <td><%= f.check_box :fup_6_le %></td>
+      </tr>
+    </tbody>
+  </table> -->
+
+  <div class="form-group">
+    <%= f.submit class: "btn btn-primary" %>
+  </div>
+<% end %>

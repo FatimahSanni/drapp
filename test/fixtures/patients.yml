@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mrn: MyString
+  name: MyString
+  gender: MyString
+  dob: 2015-06-02
+  phone: MyString
+  diabetic: false
+  diab_duration: MyString
+  hypertensive: false
+  hyp_duration: MyString
+  va_re: MyString
+  va_le: MyString
+  iop_re: MyString
+  iop_le: MyString
+  hbaic: MyString
+
+two:
+  mrn: MyString
+  name: MyString
+  gender: MyString
+  dob: 2015-06-02
+  phone: MyString
+  diabetic: false
+  diab_duration: MyString
+  hypertensive: false
+  hyp_duration: MyString
+  va_re: MyString
+  va_le: MyString
+  iop_re: MyString
+  iop_le: MyString
+  hbaic: MyString

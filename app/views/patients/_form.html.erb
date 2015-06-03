@@ -1,0 +1,72 @@
+<%= form_for(@patient) do |f| %>
+  <% if @patient.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@patient.errors.count, "error") %> prohibited this patient from being saved:</h2>
+
+      <ul>
+      <% @patient.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :gender %>
+    <%= f.select :gender, Patient::Gender, {include_blank: true}, {class: "form-control"} %>
+  </div>
+  <div class="form-group">
+    <%= f.label :dob %>
+    <%= f.date_field :dob, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :phone %>
+    <%= f.text_field :phone, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.check_box :diabetic %>
+    <%= f.label :diabetic %>
+  </div>
+  <div class="form-group">
+    <%= f.label :diab_duration %>
+    <%= f.text_field :diab_duration, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.check_box :hypertensive %>
+    <%= f.label :hypertensive %>
+  </div>
+  <div class="form-group">
+    <%= f.label :hyp_duration %>
+    <%= f.text_field :hyp_duration, class: "form-control" %>
+  </div>
+  <p>Visual Acuity</p>
+  <div class="form-group">
+    <%= f.label :va_re, 'RE' %>
+    <%= f.text_field :va_re, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :va_le, 'LE' %>
+    <%= f.text_field :va_le, class: "form-control" %>
+  </div>
+  <hr>
+  <p>IOP</p>
+  <div class="form-group">
+    <%= f.label :iop_re, 'RE' %>
+    <%= f.text_field :iop_re, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :iop_le, 'LE' %>
+    <%= f.text_field :iop_le, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :hbaic %>
+    <%= f.text_field :hbaic, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.submit class: "btn btn-primary" %>
+  </div>
+<% end %>

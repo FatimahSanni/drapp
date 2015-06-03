@@ -1,0 +1,43 @@
+<h1>Medical Records</h1>
+<hr>
+<p><strong>Name:</strong> <%= @patient.name %> <strong>(<%= @patient.mrn %>)</strong></p> 
+<p><strong>Sex:</strong> <%= @patient.gender %></p>
+<p><strong>DOB:</strong> <%= @patient.dob.to_date %></p>
+ <% if @patient.medical_records.exists? %>
+<table class="table table-hover table-striped">
+  <thead>
+    <tr>
+      <th>Diagnosis (RE)</th>
+      <th>Diagnosis (LE)</th>
+      <th>Advice</th>
+      <th>Ocular Disease(s)</th>
+      <th>Date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @medical_records.each do |medical_record| %>
+      <tr>
+        <td><%= medical_record.diagnosis_re %></td>
+        <td><%= medical_record.diagnosis_le %></td>
+        <td><%= medical_record.advices.map(&:todo).join(", ") %></td>
+        <% if medical_record.ocular_diseases.exists? %>
+        <td><%= medical_record.ocular_diseases.map(&:name).join(", ") %></td>
+        <% else %>
+        <td>None</td>
+        <% end %>
+        <td><%= medical_record.created_at.to_date %></td>
+        <td><%= link_to 'Report', '#' %></td>
+        <td><%= link_to 'Edit', [:edit, @patient, medical_record] %></td>
+        <td><%= link_to 'Destroy', [@patient, medical_record], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% else %>
+<h2 class="text-center">No records entered yet!</h2>
+ <% end %>
+<br>
+
+<%= link_to 'New Medical record', new_patient_medical_record_path(@patient) %>

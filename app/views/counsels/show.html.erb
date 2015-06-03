@@ -1,0 +1,12 @@
+<p>
+  <strong>Diagnosis:</strong>
+  <%= @counsel.diagnosis.name %>
+</p>
+
+<p>
+  <strong>Counsel:</strong>
+  <%= simple_format(@counsel.counsel) %>
+</p>
+
+<%= link_to 'Edit', edit_counsel_path(@counsel) %> |
+<%= link_to 'Back', counsels_path %>

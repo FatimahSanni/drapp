@@ -1,0 +1,25 @@
+<%= form_for(@counsel) do |f| %>
+  <% if @counsel.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@counsel.errors.count, "error") %> prohibited this counsel from being saved:</h2>
+
+      <ul>
+      <% @counsel.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :diagnosis_id %>
+    <%= f.collection_select :diagnosis_id, Diagnosis.all, :id, :name, {include_blank: true}, {class: "form-control"} %>
+  </div>
+  <div class="form-group">
+    <%= f.label :counsel %>
+    <%= f.text_area :counsel, class: "form-control", rows: 15 %>
+  </div>
+  <div class="form-group">
+    <%= f.submit class: "btn btn-primary" %>
+  </div>
+<% end %>

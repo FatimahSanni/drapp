@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  counsel: MyText
+  diagnosis_id: 
+
+two:
+  counsel: MyText
+  diagnosis_id: 
