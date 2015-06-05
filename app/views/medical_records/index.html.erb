@@ -9,8 +9,7 @@
     <tr>
       <th>Diagnosis (RE)</th>
       <th>Diagnosis (LE)</th>
-      <th>Advice</th>
-      <th>Ocular Disease(s)</th>
+      <th>Counsel</th>
       <th>Date</th>
       <th colspan="3"></th>
     </tr>
@@ -21,12 +20,7 @@
       <tr>
         <td><%= medical_record.diagnosis_re %></td>
         <td><%= medical_record.diagnosis_le %></td>
-        <td><%= medical_record.advices.map(&:todo).join(", ") %></td>
-        <% if medical_record.ocular_diseases.exists? %>
-        <td><%= medical_record.ocular_diseases.map(&:name).join(", ") %></td>
-        <% else %>
-        <td>None</td>
-        <% end %>
+        <td><%= medical_record.counsel_id %></td>
         <td><%= medical_record.created_at.to_date %></td>
         <td><%= link_to 'Report', '#' %></td>
         <td><%= link_to 'Edit', [:edit, @patient, medical_record] %></td>

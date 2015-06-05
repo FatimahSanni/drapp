@@ -38,7 +38,7 @@ class PatientsController < ApplicationController
       end
     end
   end
-
+  
   # PATCH/PUT /patients/1
   # PATCH/PUT /patients/1.json
   def update

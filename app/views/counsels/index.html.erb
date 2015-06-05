@@ -3,6 +3,7 @@
 <table class="table table-striped table-hover">
   <thead>
     <tr>
+      <th>#</th>
       <th>Diagnosis</th>
       <th>Counsel</th>
       <th colspan="3"></th>
@@ -12,7 +13,8 @@
   <tbody>
     <% @counsels.each do |counsel| %>
       <tr>
-        <td><%= counsel.diagnosis.name %></td>
+        <td><%= counsel.diagnosis.id %></td>
+        <td><%= counsel.name %></td>
         <td><%= excerpt(counsel.counsel, 'Your', radius: 75) %></td>
         <td><%= link_to 'Show', counsel %></td>
         <td><%= link_to 'Edit', edit_counsel_path(counsel) %></td>

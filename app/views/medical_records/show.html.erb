@@ -1,4 +1,8 @@
-
+<ul>
+  <% @medical_record.advices.each do |a| %>
+  <li><%= a.todo %></li>
+  <% end %>
+</ul>
 <p>
   <strong>Micro re:</strong>
   <%= @medical_record.micro_re %>

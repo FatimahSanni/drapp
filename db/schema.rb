@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150603072558) do
+ActiveRecord::Schema.define(version: 20150605080544) do
 
   create_table "advices", force: :cascade do |t|
     t.string   "todo",              limit: 255
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20150603072558) do
     t.integer  "diagnosis_id", limit: 4
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.string   "name",         limit: 255
   end
 
   add_index "counsels", ["diagnosis_id"], name: "index_counsels_on_diagnosis_id", using: :btree
@@ -90,8 +91,10 @@ ActiveRecord::Schema.define(version: 20150603072558) do
     t.boolean  "cotton_re",    limit: 1
     t.boolean  "cotton_le",    limit: 1
     t.boolean  "nve_le",       limit: 1, default: false, null: false
+    t.integer  "counsel_id",   limit: 4
   end
 
+  add_index "medical_records", ["counsel_id"], name: "index_medical_records_on_counsel_id", using: :btree
   add_index "medical_records", ["patient_id"], name: "index_medical_records_on_patient_id", using: :btree
 
   create_table "ocular_diseases", force: :cascade do |t|
@@ -142,6 +145,7 @@ ActiveRecord::Schema.define(version: 20150603072558) do
 
   add_foreign_key "advices", "medical_records"
   add_foreign_key "counsels", "diagnoses"
+  add_foreign_key "medical_records", "counsels"
   add_foreign_key "medical_records", "patients"
   add_foreign_key "ocular_diseases", "medical_records"
 end
