@@ -12,10 +12,6 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :diagnosis_id %>
-    <%= f.collection_select :diagnosis_id, Diagnosis.all, :id, :name, {include_blank: true}, {class: "form-control"} %>
-  </div>
-  <div class="form-group">
     <%= f.label :name %>
     <%= f.text_field :name, class: "form-control" %>
   </div>

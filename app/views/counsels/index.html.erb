@@ -13,7 +13,7 @@
   <tbody>
     <% @counsels.each do |counsel| %>
       <tr>
-        <td><%= counsel.diagnosis.id %></td>
+        <td><%= counsel.id %></td>
         <td><%= counsel.name %></td>
         <td><%= excerpt(counsel.counsel, 'Your', radius: 75) %></td>
         <td><%= link_to 'Show', counsel %></td>

@@ -2,7 +2,7 @@
 <hr>
 <p><strong>Name:</strong> <%= @patient.name %> <strong>(<%= @patient.mrn %>)</strong></p> 
 <p><strong>Sex:</strong> <%= @patient.gender %></p>
-<p><strong>DOB:</strong> <%= @patient.dob.to_date %></p>
+<p><strong>DOB:</strong> <%= @patient.age %></p>
  <% if @patient.medical_records.exists? %>
 <table class="table table-hover table-striped">
   <thead>
@@ -18,10 +18,10 @@
   <tbody>
     <% @medical_records.each do |medical_record| %>
       <tr>
-        <td><%= medical_record.diagnosis_re %></td>
-        <td><%= medical_record.diagnosis_le %></td>
-        <td><%= medical_record.counsel_id %></td>
-        <td><%= medical_record.created_at.to_date %></td>
+        <td><%= medical_record.diag_re %></td>
+        <td><%= medical_record.diag_le %></td>
+        <td><%= medical_record.counsel.counsel %></td>
+        <td><%= medical_record.created_at.strftime("%d/%m/%Y") %></td>
         <td><%= link_to 'Report', '#' %></td>
         <td><%= link_to 'Edit', [:edit, @patient, medical_record] %></td>
         <td><%= link_to 'Destroy', [@patient, medical_record], method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -34,4 +34,4 @@
  <% end %>
 <br>
 
-<%= link_to 'New Medical record', new_patient_medical_record_path(@patient) %>
+<%= link_to 'Back to Patients', patients_path %> | <%= link_to 'New Medical record', new_patient_medical_record_path(@patient) %>

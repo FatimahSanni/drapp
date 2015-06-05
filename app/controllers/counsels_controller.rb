@@ -69,6 +69,6 @@ class CounselsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def counsel_params
-      params.require(:counsel).permit(:name, :counsel, :diagnosis_id)
+      params.require(:counsel).permit(:name, :counsel)
     end
 end

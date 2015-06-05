@@ -110,76 +110,79 @@
     </thead>
     <tbody>
       <tr>
-        <td>NPDR (Mild/Moderate)</td>
-        <td><%= f.check_box :mild_re %></td>
-        <td><%= f.check_box :mild_le %></td>
+        <td>No Apparent Diabetic Retinopathy</td>
+        <td><%= f.radio_button :diag_re, "NADR" %></td>
+        <td><%= f.radio_button :diag_le, "NADR" %></td>
+      </tr>
+      <tr>
+        <td>Mild NPDR</td>
+        <td><%= f.radio_button :diag_re, "Mild NPDR" %></td>
+        <td><%= f.radio_button :diag_le, "Mild NPDR" %></td>
+      </tr>
+      <tr>
+        <td>Moderate NPDR</td>
+        <td><%= f.radio_button :diag_re, "Moderate NPDR" %></td>
+        <td><%= f.radio_button :diag_le, "Moderate NPDR" %></td>
       </tr>
       <tr>
         <td>Severe NPDR</td>
-        <td><%= f.check_box :severe_re %></td>
-        <td><%= f.check_box :severe_le %></td>
+        <td><%= f.radio_button :diag_re, "Severe NPDR" %></td>
+        <td><%= f.radio_button :diag_le, "Severe NPDR" %></td>
       </tr>
       <tr>
         <td>PDR</td>
-        <td><%= f.check_box :pdr_re %></td>
-        <td><%= f.check_box :pdr_le %></td>
+        <td><%= f.radio_button :diag_re, "PDR" %></td>
+        <td><%= f.radio_button :diag_le, "PDR" %></td>
       </tr>
-      <tr>
-        <td>ME</td>
-        <td><%= f.check_box :me_re %></td>
-        <td><%= f.check_box :me_le %></td>
-      </tr>
+      <!-- <tr>
+        <td>Macular Edema</td>
+        <td><%= f.radio_button :diag_re, "Macula Edema" %></td>
+        <td><%= f.radio_button :diag_le, "Macula Edema" %></td>
+      </tr> -->
     </tbody>
   </table>
   <hr>
   <h3>Advice</h3>
-  <div class="form-group">
+  <!-- <div class="form-group">
       <%= link_to_add_association 'Add Todo', f, :advices %>
       <%= f.fields_for :advices do |o| %>
       <%= render 'advice_fields', f: o %>
       <% end %>
-    </div>
-  <!-- <table class="table table-striped table-hover">
+    </div> -->
+  <table class="table table-striped table-hover">
     <thead>
       <tr>
         <th></th>
-        <th>Right Eye</th>
-        <th>Left Eye</th>
+        <th>Advice</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td>OCT</td>
         <td><%= f.check_box :oct_re %></td>
-        <td><%= f.check_box :oct_le %></td>
       </tr>
       <tr>
         <td>FFA</td>
         <td><%= f.check_box :ffa_re %></td>
-        <td><%= f.check_box :ffa_le %></td>
       </tr>
       <tr>
         <td>Injection</td>
         <td><%= f.check_box :injection_re %></td>
-        <td><%= f.check_box :injection_le %></td>
       </tr>
       <tr>
         <td>Laser</td>
         <td><%= f.check_box :laser_re %></td>
-        <td><%= f.check_box :laser_le %></td>
       </tr>
       <tr>
         <td>FUP after 3 Months</td>
         <td><%= f.check_box :fup_3_re %></td>
-        <td><%= f.check_box :fup_3_le %></td>
       </tr>
       <tr>
         <td>FUP after 6 months</td>
         <td><%= f.check_box :fup_6_re %></td>
-        <td><%= f.check_box :fup_6_le %></td>
       </tr>
     </tbody>
-  </table> -->
+  </table>
 
   <div class="form-group">
     <%= f.submit class: "btn btn-primary" %>

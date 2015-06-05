@@ -74,6 +74,6 @@ class MedicalRecordsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def medical_record_params
-      params.require(:medical_record).permit(:counsel_id, :cotton_re, :cotton_le, :nve_le, :micro_re, :micro_le, :haem_re, :haem_le, :hard_re, :hard_le, :csme_re, :csme_le, :irma_re, :irma_le, :nvd_re, :nvd_le, :nve_re, :nvd_le, :vit_re, :vit_le, :trd_re, :trd_le, :focal_re, :focal_le, :prp_re, :prp_le, :post_re, :post_le, :hazy_re, :hazy_le, :npdr_re, :mild_re, :mild_le, :severe_re, :severe_le, :pdr_re, :pdr_le, :me_re, :me_le, :oct_re, :oct_le, :ffa_re, :ffa_le, :injection_re, :injection_le, :laser_re, :laser_le, :fup_3_re, :fup_3_le, :fup_6_re, :fup_6_le, ocular_diseases_attributes: [:id, :name, :_destroy], advices_attributes: [:id, :todo, :_destroy])
+      params.require(:medical_record).permit(:diag_re, :diag_le, :counsel_id, :cotton_re, :cotton_le, :nve_le, :micro_re, :micro_le, :haem_re, :haem_le, :hard_re, :hard_le, :csme_re, :csme_le, :irma_re, :irma_le, :nvd_re, :nvd_le, :nve_re, :nvd_le, :vit_re, :vit_le, :trd_re, :trd_le, :focal_re, :focal_le, :prp_re, :prp_le, :post_re, :post_le, :hazy_re, :hazy_le, :npdr_re, :mild_re, :mild_le, :severe_re, :severe_le, :pdr_re, :pdr_le, :me_re, :me_le, :oct_re, :oct_le, :ffa_re, :ffa_le, :injection_re, :injection_le, :laser_re, :laser_le, :fup_3_re, :fup_3_le, :fup_6_re, :fup_6_le, ocular_diseases_attributes: [:id, :name, :_destroy], advices_attributes: [:id, :todo, :_destroy])
     end
 end

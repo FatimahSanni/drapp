@@ -8,51 +8,68 @@ class MedicalRecord < ActiveRecord::Base
 	has_many :advices, dependent: :destroy
 	accepts_nested_attributes_for :advices, allow_destroy: true, reject_if: :all_blank
 
-	def diagnosis_re
-		if self.mild_re == true
-			"Mild NPDR"
-		elsif self.severe_re == true
-			"Severe NPDR"
-		elsif self.pdr_re == true
-			"PDR"
-		else
-			"No Diabetic Retinopathy"
-		end		
-	end
-
-	def diagnosis_le
-		if self.mild_le == true
-			"Mild NPDR"
-		elsif self.severe_le == true
-			"Severe NPDR"
-		elsif self.pdr_le == true
-			"PDR"
-		elsif self.me_le == true
-			"Macula Edema"
-		else
-			"No Diabetic Retinopathy"
-		end
-	end
 
 	private
 
 	def set_report_re
-		ndr = Counsel.find_by_name("No Diabetic retinopathy").id
-		mild = Counsel.find_by_name("Mild NPDR").id
-		moderate = Counsel.find_by_name("Moderate NPDR").id
-		severe = Counsel.find_by_name("Severe NPDR").id
-		# pdr = Counsel.where(name: "No Diabetic retinopathy")
+		ndr = Counsel.find(1).id
+		mild = Counsel.find(2).id
+		moderate = Counsel.find(3).id
+		severe = Counsel.find(4).id
+		pdr = Counsel.find(5).id
 		# me = Counsel.where(name: "No Diabetic retinopathy")
-		if self.diagnosis_re == "No Diabetic Retinopathy"
-			update_column(:counsel_id, ndr)
-		elsif self.diagnosis_re == "Mild NPDR"
-			update_column(:counsel_id, moderate)
-		elsif self.diagnosis_re == "Severe NPDR"
-			update_column(:counsel_id, severe)
-				
-		end
-	end
 
-	def set_report_le
+		case "#{self.diag_re} #{self.diag_le}"
+		when "PDR PDR"
+			update_column(:counsel_id, pdr)
+		when "PDR NADR"
+			update_column(:counsel_id, pdr)
+		when "NADR PDR"
+			update_column(:counsel_id, pdr)
+		when "PDR Mild NPDR"
+			update_column(:counsel_id, pdr)
+		when "Mild NPDR PDR"
+			update_column(:counsel_id, pdr)
+		when "PDR Moderate NPDR"
+			update_column(:counsel_id, pdr)
+		when "Moderate NPDR PDR"
+			update_column(:counsel_id, pdr)
+		when "PDR Severe NPDR"
+			update_column(:counsel_id, pdr)
+		when "Severe NPDR PDR"
+			update_column(:counsel_id, pdr)
+		when "Severe NPDR Severe NPDR"
+			update_column(:counsel_id, severe)
+		when "Severe NPDR NADR"
+			update_column(:counsel_id, severe)
+		when "NADR Severe NPDR"
+			update_column(:counsel_id, severe)
+		when "Severe NPDR Moderate NPDR"
+			update_column(:counsel_id, severe)
+		when "Moderate NPDR Severe NPDR"
+			update_column(:counsel_id, severe)
+		when "Severe NPDR Mild NPDR"
+			update_column(:counsel_id, severe)
+		when "Mild NPDR Severe NPDR"
+			update_column(:counsel_id, severe)
+		when "Moderate NPDR Moderate NPDR"
+			update_column(:counsel_id, moderate)
+		when"NADR Moderate NPDR"
+			update_column(:counsel_id, moderate)
+		when "Moderate NPDR NADR"
+			update_column(:counsel_id, moderate)
+		when "Mild NPDR Moderate NPDR"
+			update_column(:counsel_id, moderate)
+		when "Moderate NPDR Mild NPDR"
+			update_column(:counsel_id, moderate)
+		when "Mild NPDR Mild NPDR"
+			update_column(:counsel_id, mild)
+		when "Mild NPDR NADR"
+			update_column(:counsel_id, mild)
+		when "NADR Mild NPDR"
+				update_column(:counsel_id, mild)
+		else
+			update_column(:counsel_id, ndr)
+		end
 	end
 end

@@ -34,8 +34,8 @@
         <td><%= patient.gender %></td>
         <td><%= patient.created_at.to_date %></td>
         <% if patient.medical_records.exists? %>
-          <td><%= patient.medical_records.last.diagnosis_re %>(RE)</td> 
-          <td><%= patient.medical_records.last.diagnosis_le %>(LE)</td>
+          <td><%= patient.medical_records.last.diag_re %></td> 
+          <td><%= patient.medical_records.last.diag_le %></td>
         <% else %>
         <td>No Medical record yet</td>
         <td>No Medical record yet</td>
