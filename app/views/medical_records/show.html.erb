@@ -1,4 +1,10 @@
-<h1>Medical Records</h1>
+<div class="text-center">
+  <h1>Eye Foundation Hospital</h1>
+  <p>27, Isaac John Street, Ikeja GRA</p>
+
+  <p>info@eyefoundationhospital.com | www.eyefoundationhospital.com</p>
+</div>
+
 <hr>
 <p><strong>Name:</strong> <%= @patient.name %> <strong>(<%= @patient.mrn %>)</strong></p> 
 <p><strong>Sex:</strong> <%= @patient.gender %></p>
@@ -14,4 +20,4 @@
    <%= simple_format(@medical_record.counsel.counsel) %>
  </p>
 
-
+<%= link_to 'Print Report(PDF)', [@patient, @medical_record, format: "pdf"] %>

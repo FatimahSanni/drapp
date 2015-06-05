@@ -12,10 +12,15 @@ class MedicalRecordsController < ApplicationController
   # GET /medical_records/1
   # GET /medical_records/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = ReportPdf.new(@medical_record)
+        send_data pdf.render, filename: "report_#{@medical_record_id}.pdf", type: "application/pdf", disposition: "inline"
+      end
+    end
   end
 
-  def report
-  end
 
   # GET /medical_records/new
   def new
