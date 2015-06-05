@@ -12,6 +12,7 @@ gem 'devise'
 gem 'cocoon'
 gem 'ransack'
 gem 'turbolinks'
+gem 'prawn', '~> 2.0.1'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 

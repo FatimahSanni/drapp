@@ -22,7 +22,7 @@
         <td><%= medical_record.diag_le %></td>
         <td><%= medical_record.counsel.counsel %></td>
         <td><%= medical_record.created_at.strftime("%d/%m/%Y") %></td>
-        <td><%= link_to 'Report', '#' %></td>
+        <td><%= link_to 'Report', [@patient, medical_record] %></td>
         <td><%= link_to 'Edit', [:edit, @patient, medical_record] %></td>
         <td><%= link_to 'Destroy', [@patient, medical_record], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

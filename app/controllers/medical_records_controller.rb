@@ -14,6 +14,9 @@ class MedicalRecordsController < ApplicationController
   def show
   end
 
+  def report
+  end
+
   # GET /medical_records/new
   def new
     @medical_record = @patient.medical_records.build
